@@ -19678,7 +19678,8 @@ window.App = {
 	start: function() {
 		var self = this;
 
-		HYIP.setProvider(web3.currentProvider);
+		if(web3 !== undefined)
+			HYIP.setProvider(web3.currentProvider);
 
 		self.fillWallets();    
 		self.generateIcons();
