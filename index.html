@@ -2,12 +2,12 @@
 <html>
 
 	
-	<head><script type="text/javascript" src="bundle.js"></script>
+	<head><script type="text/javascript" src="bundle.js"></script><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/styles/default.min.css">
 											<meta name="robots" content="noindex, nofollow" />
 				<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 
-					<title><i>the Function</i></title>
+					<title>the Function</title>
 		
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
@@ -3270,7 +3270,7 @@ screen and (min-width: 1000px) and (-webkit-max-device-pixel-ratio: 1.5)
 	id="element-4"
 	>
 
-	<div class="contents"><p style=" "><font color="#ffffff"><i>the Function</i> is a transparent investment project based on Ethereum blockchain platform with using a smart contract.</font></p><p style=" "><font color="#ffffff"><br></font></p><p style=" "><font color="#ffffff">A smart-contract holds all the deposits on its balance sheet and itself distributes the payments in accordance with the conditions specified therein.</font></p><p style=" "><font color="#ffffff"><br></font></p><p style=" "><font color="#ffffff">The contract is executed in the same way as it was programmed and is not subject to change. At the same time, the contract code, its balance and the list of transactions are publicly available - anyone can check them.</font></p><p style=" "><br></p></div>
+	<div class="contents"><p style=" "><font color="#ffffff">the Function is a transparent investment project based on Ethereum blockchain platform with using a smart contract.</font></p><p style=" "><font color="#ffffff"><br></font></p><p style=" "><font color="#ffffff">A smart-contract holds all the deposits on its balance sheet and itself distributes the payments in accordance with the conditions specified therein.</font></p><p style=" "><font color="#ffffff"><br></font></p><p style=" "><font color="#ffffff">The contract is executed in the same way as it was programmed and is not subject to change. At the same time, the contract code, its balance and the list of transactions are publicly available - anyone can check them.</font></p><p style=" "><br></p></div>
 </div>
 
 																													<div
@@ -3403,7 +3403,7 @@ screen and (min-width: 1000px) and (-webkit-max-device-pixel-ratio: 1.5)
 	id="element-9"
 	>
 
-	<div class="contents"><p style=" ">By investing in <i>the Function</i> you will receive 3.3% daily from the deposit amount - throughout the life of the contract. Interest income is paid by a smart contract every day to your Ethereum Wallet.</p><p style=" "><br></p><p style=" "><br></p><p style=" ">The daily project commission is 3.7% of the contract balance amount. Most of the commission will be invested in the advertising of the project. Be sure of this, we are also interested in the long-term work of the contract because our profit directly depends on this.</p><p style=" "><br></p><p style=" ">The contract does not have a deposit return function. The reason lies in the fact that it is impossible to create a fully decentralized project with the possibility to return the deposit because if you give such a function the contract is likely to completely exhaust the entire balance already in the first month of payments. We made a choice in the direction of decentralization and stable income.</p><p style=" "><br></p></div>
+	<div class="contents"><p style=" ">By investing in the Function you will receive 3.3% daily from the deposit amount - throughout the life of the contract. Interest income is paid by a smart contract every day to your Ethereum Wallet.</p><p style=" "><br></p><p style=" "><br></p><p style=" ">The daily project commission is 3.7% of the contract balance amount. Most of the commission will be invested in the advertising of the project. Be sure of this, we are also interested in the long-term work of the contract because our profit directly depends on this.</p><p style=" "><br></p><p style=" ">The contract does not have a deposit return function. The reason lies in the fact that it is impossible to create a fully decentralized project with the possibility to return the deposit because if you give such a function the contract is likely to completely exhaust the entire balance already in the first month of payments. We made a choice in the direction of decentralization and stable income.</p><p style=" "><br></p></div>
 </div>
 
 																													<div
@@ -3411,25 +3411,25 @@ screen and (min-width: 1000px) and (-webkit-max-device-pixel-ratio: 1.5)
 	id="element-327"
 	>
 
-	<div class="contents"><code>pragma solidity ^0.4.2;
+	<div class="contents"><pre style="text-align:left; max-height: 700px; overflow-y: scroll;"><code>pragma solidity ^<span class="hljs-number">0.4</span><span class="hljs-number">.2</span>;
 
 contract HYIP {
 	
-	/* CONTRACT SETUP */
+	<span class="hljs-comment">/* CONTRACT SETUP */</span>
 
-	uint constant PAYOUT_INTERVAL = 1 days;
+	uint constant PAYOUT_INTERVAL = <span class="hljs-number">1</span> days;
 
-	/* NB: Solidity doesn't support fixed or floats yet, so we use promille instead of percent */	
-	uint constant BENEFICIARIES_INTEREST = 37;
-	uint constant INVESTORS_INTEREST = 33;
-	uint constant INTEREST_DENOMINATOR = 1000;
+	<span class="hljs-comment">/* NB: Solidity doesn't support fixed or floats yet, so we use promille instead of percent */</span>	
+	uint constant BENEFICIARIES_INTEREST = <span class="hljs-number">37</span>;
+	uint constant INVESTORS_INTEREST = <span class="hljs-number">33</span>;
+	uint constant INTEREST_DENOMINATOR = <span class="hljs-number">1000</span>;
 
-	/* DATA TYPES */
+	<span class="hljs-comment">/* DATA TYPES */</span>
 
-	/* the payout happend */
+	<span class="hljs-comment">/* the payout happend */</span>
 	event Payout(uint paidPeriods, uint investors, uint beneficiaries);
 	
-	/* Investor struct: describes a single investor */
+	<span class="hljs-comment">/* Investor struct: describes a single investor */</span>
 	struct Investor
 	{	
 		address etherAddress;
@@ -3437,46 +3437,46 @@ contract HYIP {
 		uint investmentTime;
 	}
 
-	/* FUNCTION MODIFIERS */
-	modifier adminOnly { if (msg.sender == m_admin) _; }
+	<span class="hljs-comment">/* FUNCTION MODIFIERS */</span>
+	modifier adminOnly { <span class="hljs-keyword">if</span> (msg.sender == m_admin) _; }
 
-	/* VARIABLE DECLARATIONS */
+	<span class="hljs-comment">/* VARIABLE DECLARATIONS */</span>
 
-	/* the contract owner, the only address that can change beneficiaries */
+	<span class="hljs-comment">/* the contract owner, the only address that can change beneficiaries */</span>
 	address private m_admin;
 
-	/* the time of last payout */
+	<span class="hljs-comment">/* the time of last payout */</span>
 	uint private m_latestPaidTime;
 
-	/* Array of investors */
+	<span class="hljs-comment">/* Array of investors */</span>
 	Investor[] private m_investors;
 
-	/* Array of beneficiaries */
+	<span class="hljs-comment">/* Array of beneficiaries */</span>
 	address[] private m_beneficiaries;
 	
-	/* PUBLIC FUNCTIONS */
+	<span class="hljs-comment">/* PUBLIC FUNCTIONS */</span>
 
-	/* contract constructor, sets the admin to the address deployed from and adds benificary */
-	function HYIP() 
-	{
+	<span class="hljs-comment">/* contract constructor, sets the admin to the address deployed from and adds benificary */</span>
+	<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">HYIP</span>(<span class="hljs-params"></span>) 
+	</span>{
 		m_admin = msg.sender;
 		m_latestPaidTime = now;		
 	}
 
-	/* fallback function: called when the contract received plain ether */
-	function() payable
-	{
+	<span class="hljs-comment">/* fallback function: called when the contract received plain ether */</span>
+	<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) <span class="hljs-title">payable</span>
+	</span>{
 		addInvestor();
 	}
 
-	function Invest() payable
-	{
+	<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Invest</span>(<span class="hljs-params"></span>) <span class="hljs-title">payable</span>
+	</span>{
 		addInvestor();	
 	}
 
-	function status() constant returns (uint bank, uint investorsCount, uint beneficiariesCount, uint unpaidTime, uint unpaidIntervals)
-	{
-		bank = this.balance;
+	<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">status</span>(<span class="hljs-params"></span>) <span class="hljs-title">constant</span> <span class="hljs-title">returns</span> (<span class="hljs-params">uint bank, uint investorsCount, uint beneficiariesCount, uint unpaidTime, uint unpaidIntervals</span>)
+	</span>{
+		bank = <span class="hljs-keyword">this</span>.balance;
 		investorsCount = m_investors.length;
 		beneficiariesCount = m_beneficiaries.length;
 		unpaidTime = now - m_latestPaidTime;
@@ -3484,79 +3484,79 @@ contract HYIP {
 	}
 
 
-	/* checks if it's time to make payouts. if so, send the ether */
-	function performPayouts()
-	{
-		uint paidPeriods = 0;
+	<span class="hljs-comment">/* checks if it's time to make payouts. if so, send the ether */</span>
+	<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">performPayouts</span>(<span class="hljs-params"></span>)
+	</span>{
+		uint paidPeriods = <span class="hljs-number">0</span>;
 		uint investorsPayout;
-		uint beneficiariesPayout = 0;
+		uint beneficiariesPayout = <span class="hljs-number">0</span>;
 
-		while(m_latestPaidTime + PAYOUT_INTERVAL < now)
+		<span class="hljs-keyword">while</span>(m_latestPaidTime + PAYOUT_INTERVAL &lt; now)
 		{						
 			uint idx;
 
-			/* pay the beneficiaries */		
-			if(m_beneficiaries.length > 0) 
+			<span class="hljs-comment">/* pay the beneficiaries */</span>		
+			<span class="hljs-keyword">if</span>(m_beneficiaries.length &gt; <span class="hljs-number">0</span>) 
 			{
-				beneficiariesPayout = (this.balance * BENEFICIARIES_INTEREST) / INTEREST_DENOMINATOR;
+				beneficiariesPayout = (<span class="hljs-keyword">this</span>.balance * BENEFICIARIES_INTEREST) / INTEREST_DENOMINATOR;
 				uint eachBeneficiaryPayout = beneficiariesPayout / m_beneficiaries.length;  
-				for(idx = 0; idx < m_beneficiaries.length; idx++)
+				<span class="hljs-keyword">for</span>(idx = <span class="hljs-number">0</span>; idx &lt; m_beneficiaries.length; idx++)
 				{
-					if(!m_beneficiaries[idx].send(eachBeneficiaryPayout))
-						throw;				
+					<span class="hljs-keyword">if</span>(!m_beneficiaries[idx].send(eachBeneficiaryPayout))
+						<span class="hljs-keyword">throw</span>;				
 				}
 			}
 
-			/* pay the investors  */
-			/* we use reverse iteration here */
-			for (idx = m_investors.length; idx-- > 0; )
+			<span class="hljs-comment">/* pay the investors  */</span>
+			<span class="hljs-comment">/* we use reverse iteration here */</span>
+			<span class="hljs-keyword">for</span> (idx = m_investors.length; idx-- &gt; <span class="hljs-number">0</span>; )
 			{
-				if(m_investors[idx].investmentTime > m_latestPaidTime + PAYOUT_INTERVAL)
-					continue;
+				<span class="hljs-keyword">if</span>(m_investors[idx].investmentTime &gt; m_latestPaidTime + PAYOUT_INTERVAL)
+					<span class="hljs-keyword">continue</span>;
 				uint payout = (m_investors[idx].deposit * INVESTORS_INTEREST) / INTEREST_DENOMINATOR;
-				if(!m_investors[idx].etherAddress.send(payout))
-					throw;
+				<span class="hljs-keyword">if</span>(!m_investors[idx].etherAddress.send(payout))
+					<span class="hljs-keyword">throw</span>;
 				investorsPayout += payout;	
 			}
 			
-			/* save the latest paid time */
+			<span class="hljs-comment">/* save the latest paid time */</span>
 			m_latestPaidTime += PAYOUT_INTERVAL;
 			paidPeriods++;
 		}
 			
-		/* emit the Payout event */
+		<span class="hljs-comment">/* emit the Payout event */</span>
 		Payout(paidPeriods, investorsPayout, beneficiariesPayout);
 	}
 
-	/* PRIVATE FUNCTIONS */
-	function addInvestor() private 
-	{
+	<span class="hljs-comment">/* PRIVATE FUNCTIONS */</span>
+	<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">addInvestor</span>(<span class="hljs-params"></span>) <span class="hljs-title">private</span> 
+	</span>{
 		m_investors.push(Investor(msg.sender, msg.value, now));
 	}
 
-	/* ADMIN FUNCTIONS */
+	<span class="hljs-comment">/* ADMIN FUNCTIONS */</span>
 
-	/* pass the admin rights to another address */
-	function changeAdmin(address newAdmin) adminOnly 
-	{
+	<span class="hljs-comment">/* pass the admin rights to another address */</span>
+	<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">changeAdmin</span>(<span class="hljs-params">address newAdmin</span>) <span class="hljs-title">adminOnly</span> 
+	</span>{
 		m_admin = newAdmin;
 	}
 
-	/* add one more benificiary to the list */
-	function addBeneficiary(address beneficiary) adminOnly
-	{
+	<span class="hljs-comment">/* add one more benificiary to the list */</span>
+	<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">addBeneficiary</span>(<span class="hljs-params">address beneficiary</span>) <span class="hljs-title">adminOnly</span>
+	</span>{
 		m_beneficiaries.push(beneficiary);
 	}
 
 
-	/* reset beneficiary list */
-	function resetBeneficiaryList() adminOnly
-	{
-		delete m_beneficiaries;
+	<span class="hljs-comment">/* reset beneficiary list */</span>
+	<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">resetBeneficiaryList</span>(<span class="hljs-params"></span>) <span class="hljs-title">adminOnly</span>
+	</span>{
+		<span class="hljs-keyword">delete</span> m_beneficiaries;
 	}
 	
 }
-</code></div>
+</code></pre></div>
 </div>
 
 																																		</div>
@@ -3893,7 +3893,7 @@ contract HYIP {
 	<div class="contents"><form id="invest_form">
 	<p>
 		<label>
-			<i>the Function</i>
+			the Function
 		</label>
 	</p>
 	<p><label for="wallets">Wallet: </label>
@@ -4025,7 +4025,7 @@ contract HYIP {
 	>
 
 	
-<div class="contents"><h1><p style="text-align: center;  "><br></p><p style="text-align: center;  ">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<i>the Function</i> Contract Address:</p><p style="text-align: center;  "><br></p><p style="text-align: center;  ">0x0287c5fbe6b96ddb0dbf72efc45c266f6c21120f</p><p style="text-align: center;  "><br></p><p style="text-align: center;  ">Please before send money be sure that address is correct!</p><p style="text-align: center;  "><br></p></h1></div>
+<div class="contents"><h1><p style="text-align: center;  "><br></p><p style="text-align: center;  ">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;the Function Contract Address:</p><p style="text-align: center;  "><br></p><p style="text-align: center;  ">0x0287c5fbe6b96ddb0dbf72efc45c266f6c21120f</p><p style="text-align: center;  "><br></p><p style="text-align: center;  ">Please before send money be sure that address is correct!</p><p style="text-align: center;  "><br></p></h1></div>
 </div>
 
 																													<div
@@ -4527,7 +4527,7 @@ contract HYIP {
 	id="element-328"
 	>
 
-	<div class="contents"><div name="contract-icon" style="width:100px; height:100px"; display: inline-block;></div></div>
+	<div class="contents"></div>
 </div>
 
 																													<div
@@ -4712,11 +4712,11 @@ contract HYIP {
 
 		var project_id = '56c2f3d796773d0a7e96a536';
 		var event = 'visit';
-		var key = '34a0657f052488a9bf6cf9be55ea97273ed14a3d55f31b423b80ac6ff8686f3e03385aa671dab520366ec65f18ee4e4cac1e35edad9a24a30077841e69999da8eabb5472e07cb64dcfd58c5500423ca7dd5043c6283dce2c28173711e9ad0d2d5cf752a1803e050cb81425fd62571121bcc6cb0e5b922535ff0ea4a2d3145960d44fe1ef5c057e3c3ff35cdb566a96be';
+		var key = '6e1ac0e7863c2949f579e2bae8daa2ee0c49cd8cff54c8a8f5cb7cd7d830b3b644b05954e09b15a9d6fe6d7d8294e5bdcd312365191556a033d5d4e34a82ee84a3cda5f9a26df9624c36b6b127659208eead5e11d186df099d24df866062c3460149c650b2aba3509e7e4d8648dd1ad088461e69f03c7824a8e073f950ade7dd93af73f008cc02fc3cda0d68ebb242d5';
 
 		parameters.javascript = true;
 		parameters.variation = parameters.variation_name;
-		parameters.generation_time = '9';
+		parameters.generation_time = '10';
 		parameters.responsive_mode = null;
 
 		if( window.__mobile_version === 2 && window.innerWidth < 600 && window.__variant.indexOf( '-mobile' ) < 0 )
@@ -4777,7 +4777,7 @@ contract HYIP {
 
 </script>
 <noscript class="instapage-noscrap">
-	<img href="http://anthill.instapage.com/projects/56c2f3d796773d0a7e96a536/events/visit?api_key=34a0657f052488a9bf6cf9be55ea97273ed14a3d55f31b423b80ac6ff8686f3e03385aa671dab520366ec65f18ee4e4cac1e35edad9a24a30077841e69999da8eabb5472e07cb64dcfd58c5500423ca7dd5043c6283dce2c28173711e9ad0d2d5cf752a1803e050cb81425fd62571121bcc6cb0e5b922535ff0ea4a2d3145960d44fe1ef5c057e3c3ff35cdb566a96be&amp;data=eyJvd25lcl9pZCI6MTUwMDE2NiwidXNlcl9pZCI6MTUwMDE2NiwicGFnZV9pZCI6NTUzMjM4MSwicHVibGlzaGVkX3ZlcnNpb24iOjE1MiwicXVhbnRpdHkiOjEsInN0YXRpY19wYWdlIjpmYWxzZSwidmFyaWF0aW9uX25hbWUiOiJBIiwidmFyaWF0aW9uX2lkIjoxLCJsaW5rZWRfdmFyaWF0aW9uX2lkIjoyLCJpbml0aWFsX3Jlc3BvbnNpdmVfbW9kZSI6bnVsbCwidmlzaXRvcl9pcCI6IjEwNC4xNTUuMTU5LjcxIiwidXNlcmFnZW50IjoiIiwiZ2VuZXJhdGlvbl90aW1lIjo2NH0=" >
+	<img href="http://anthill.instapage.com/projects/56c2f3d796773d0a7e96a536/events/visit?api_key=6e1ac0e7863c2949f579e2bae8daa2ee0c49cd8cff54c8a8f5cb7cd7d830b3b644b05954e09b15a9d6fe6d7d8294e5bdcd312365191556a033d5d4e34a82ee84a3cda5f9a26df9624c36b6b127659208eead5e11d186df099d24df866062c3460149c650b2aba3509e7e4d8648dd1ad088461e69f03c7824a8e073f950ade7dd93af73f008cc02fc3cda0d68ebb242d5&amp;data=eyJvd25lcl9pZCI6MTUwMDE2NiwidXNlcl9pZCI6MTUwMDE2NiwicGFnZV9pZCI6NTUzMjM4MSwicHVibGlzaGVkX3ZlcnNpb24iOjE1MiwicXVhbnRpdHkiOjEsInN0YXRpY19wYWdlIjpmYWxzZSwidmFyaWF0aW9uX25hbWUiOiJBIiwidmFyaWF0aW9uX2lkIjoxLCJsaW5rZWRfdmFyaWF0aW9uX2lkIjoyLCJpbml0aWFsX3Jlc3BvbnNpdmVfbW9kZSI6bnVsbCwidmlzaXRvcl9pcCI6IjEwNC4xNTUuMTU5LjcxIiwidXNlcmFnZW50IjoiIiwiZ2VuZXJhdGlvbl90aW1lIjo0N30=" >
 </noscript>
 <!-- end -->
 		
