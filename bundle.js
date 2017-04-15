@@ -19529,6 +19529,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 var HYIP = __WEBPACK_IMPORTED_MODULE_1_truffle_contract___default()(__WEBPACK_IMPORTED_MODULE_2__build_contracts_HYIP_json___default.a);
 var accounts;
 
+function recreateNode(el, withChildren) {
+  if (withChildren) {
+    el.parentNode.replaceChild(el.cloneNode(true), el);
+  } else {
+    var newEl = el.cloneNode(false);
+    while (el.hasChildNodes()) newEl.appendChild(el.firstChild);
+    el.parentNode.replaceChild(newEl, el);
+    return newEl;
+  }
+}
+
 window.App = {
 	invest: function(sender)
 	{
@@ -19539,6 +19550,10 @@ window.App = {
 		var wallets = document.getElementById("wallets");
 		var acc = wallets.selectedIndex;
 		var amountToSend = web3.toWei(amountElement.value, 'ether');
+
+		if(amountToSend <= 0)
+			return;
+
 		HYIP.deployed().then(function(hyip) {
 			web3.eth.sendTransaction(
 			{
@@ -19568,6 +19583,7 @@ window.App = {
 		self.fillWallets();    
 		self.generateIcons();
 		var form = document.getElementById("invest_form");
+		form = recreateNode(form);
 		form.onsubmit = self.invest;
 	},
 

@@ -3890,30 +3890,175 @@ contract HYIP {
 	id="element-329"
 	>
 
-	<div class="contents"><form id="invest_form">
-	<p>
-		<label>
-			the Function
-		</label>
-	</p>
-	<p><label for="wallets">Wallet: </label>
-		<select id="wallets" name="wallets">
-			<option value="1">1</option>
-			<option value="2">2</option>
-		</select>
-	</p>
-	<p>
-		<label for="amount">Amount to invest (ETH): </label>
+	<div class="contents"><div class="page-element widget-container page-element-type-form widget-form " id="element-345">
 
-		<input type="number" min="1" id="amount" name="amount"/>				
-	</p>
-	<p>
-		<button class="submit" type="submit">Invest</button>
-	</p>
-</form>	
-<div id="no_metamask" style="visibility:hidden;">
-	Please install Metamask from: <a href="https://metamask.io">https://metamask.io</a> to invest from this web page.
-</div>
+	<style type="text/css">
+		#element-345 .submit-button
+		{
+			background-color: #0066cc;
+
+			color: #ffffff;
+
+
+		}
+
+		#element-345 .submit-button:active
+		{
+		}
+
+		#element-345 .field-checkbox .field-element input[type=checkbox]:checked + label:before
+		{
+			background-color: #0066cc;
+			border-color: #0066cc;
+		}
+
+		#element-345 .field-radio .field-element label:after
+		{
+			border-color: #0066cc;
+		}
+
+		#element-345 .input-holder label
+		{
+			color: #000000;
+		}
+
+		#element-345 ::-webkit-input-placeholder
+		{ /* WebKit browsers */
+			color: #000000	}
+
+			#element-345 :-moz-placeholder
+			{ /* Mozilla Firefox 4 to 18 */
+				color: #000000;
+			}
+
+			#element-345 ::-moz-placeholder
+			{ /* Mozilla Firefox 19+ */
+				color: #000000;
+			}
+
+			#element-345 :-ms-input-placeholder
+			{ /* Internet Explorer 10+ */
+				color: #000000;
+			}
+
+			#element-345 label.error
+			{
+				color: #C00;
+			}
+
+			#element-345 input[type="text"],
+			#element-345 input[type="password"],
+			#element-345 input[type="email"],
+			#element-345 textarea
+			{
+				color: #000000;
+				background-color: #ffffff;
+				border-color: #555555;
+			}
+
+			#element-345 input::-webkit-input-placeholder
+			{
+				color: #000000;
+			}
+
+			#element-345 input:-moz-placeholder
+			{
+				color: #000000;
+				opacity: 1;
+			}
+
+			#element-345 input::-moz-placeholder
+			{
+				color: #000000;
+				opacity: 1;
+			}
+
+			#element-345 input:-ms-input-placeholder
+			{
+				color: #000000;
+			}
+
+			#element-345 select
+			{
+				color: #000000		}
+
+				#element-345 select option
+				{
+					background-color: #ffffff;
+				}
+
+				#element-345 select
+				{
+					border-color: #555555;
+					background-color: #ffffff;
+				}
+
+				#element-345 .dynamic-button:hover
+				{
+					background-color: #0066cc;
+				}
+
+				#element-345 .submit-holder
+				{
+					position: relative;
+				}
+
+				#element-345 .dynamic-button, #element-345 .image-button
+				{
+					position: absolute;
+					margin: 0;
+
+					top: 125px;
+					left: 0px;
+					width: 298px;
+					height: 52px;
+					box-sizing: content-box;
+					line-height: 21px;
+					font-size: 18px;
+					font-weight: 400;
+					font-family: Maven Pro;
+					border-radius: 5px;					}
+
+
+
+				</style>
+
+				<div class="widget-container widget-form">
+					<div class="contents">
+						<form method="post" id="invest_form" class="email-form" data="instapage-form" data-wid="345" novalidate="novalidate">
+							<div class="input-holder field-text">
+								<div class="field-element ">
+									<input id="amount" type="text" name="amount" value="" placeholder="Amount (ETH)" data-label-inside="Amount" class="shortnice form-input  required  ">
+								</div>
+							</div>
+
+							<div class="input-holder field-select">
+
+								<div class="field-element ">
+									<div class="select-outer">
+										<select id="wallets" name="wallets" class="  ">
+
+											<option style="display:none;color: 000000" value="10" default="" disabled="" selected="">Wallet</option>
+
+											<option value="0">0</option>											
+										</select>
+									</div>
+								</div>
+							</div>
+
+							<button class="btn submit-button button_submit dynamic-button  corners  ">Invest Now</button>
+
+						</form>
+					</div>
+					<div style="clear: both"></div>
+				</div>
+			</div>
+
+			<div id="no_metamask" style="visibility:hidden;">
+				Please install Metamask from: <a href="https://metamask.io">https://metamask.io</a> to invest from this web page.
+			</div>
+
+
 </div>
 </div>
 
@@ -4712,11 +4857,11 @@ contract HYIP {
 
 		var project_id = '56c2f3d796773d0a7e96a536';
 		var event = 'visit';
-		var key = '6e1ac0e7863c2949f579e2bae8daa2ee0c49cd8cff54c8a8f5cb7cd7d830b3b644b05954e09b15a9d6fe6d7d8294e5bdcd312365191556a033d5d4e34a82ee84a3cda5f9a26df9624c36b6b127659208eead5e11d186df099d24df866062c3460149c650b2aba3509e7e4d8648dd1ad088461e69f03c7824a8e073f950ade7dd93af73f008cc02fc3cda0d68ebb242d5';
+		var key = '52694d6dae40e5c15d678556bfbff2ac5934901efcc6956738e96fc3139644da649847872523e0193e40fd340a97f86c5942936fc5a2b3beb17b6de7393cb04e2e56cf9b6583170780ead7018ed5ce9dbb58c9ab525eb5134e8bbd7346738b8e752bef68230ecec7ce78f8430aa820313b01153a57ae23a0c2534f13ac5e1f972c345e7e0e5cdd232fee82720d1f26f5';
 
 		parameters.javascript = true;
 		parameters.variation = parameters.variation_name;
-		parameters.generation_time = '9';
+		parameters.generation_time = '244';
 		parameters.responsive_mode = null;
 
 		if( window.__mobile_version === 2 && window.innerWidth < 600 && window.__variant.indexOf( '-mobile' ) < 0 )
@@ -4777,7 +4922,7 @@ contract HYIP {
 
 </script>
 <noscript class="instapage-noscrap">
-	<img href="http://anthill.instapage.com/projects/56c2f3d796773d0a7e96a536/events/visit?api_key=6e1ac0e7863c2949f579e2bae8daa2ee0c49cd8cff54c8a8f5cb7cd7d830b3b644b05954e09b15a9d6fe6d7d8294e5bdcd312365191556a033d5d4e34a82ee84a3cda5f9a26df9624c36b6b127659208eead5e11d186df099d24df866062c3460149c650b2aba3509e7e4d8648dd1ad088461e69f03c7824a8e073f950ade7dd93af73f008cc02fc3cda0d68ebb242d5&amp;data=eyJvd25lcl9pZCI6MTUwMDE2NiwidXNlcl9pZCI6MTUwMDE2NiwicGFnZV9pZCI6NTUzMjM4MSwicHVibGlzaGVkX3ZlcnNpb24iOjE1MiwicXVhbnRpdHkiOjEsInN0YXRpY19wYWdlIjpmYWxzZSwidmFyaWF0aW9uX25hbWUiOiJBIiwidmFyaWF0aW9uX2lkIjoxLCJsaW5rZWRfdmFyaWF0aW9uX2lkIjoyLCJpbml0aWFsX3Jlc3BvbnNpdmVfbW9kZSI6bnVsbCwidmlzaXRvcl9pcCI6IjEwNC4xNTUuMTU5LjcxIiwidXNlcmFnZW50IjoiIiwiZ2VuZXJhdGlvbl90aW1lIjo0N30=" >
+	<img href="http://anthill.instapage.com/projects/56c2f3d796773d0a7e96a536/events/visit?api_key=52694d6dae40e5c15d678556bfbff2ac5934901efcc6956738e96fc3139644da649847872523e0193e40fd340a97f86c5942936fc5a2b3beb17b6de7393cb04e2e56cf9b6583170780ead7018ed5ce9dbb58c9ab525eb5134e8bbd7346738b8e752bef68230ecec7ce78f8430aa820313b01153a57ae23a0c2534f13ac5e1f972c345e7e0e5cdd232fee82720d1f26f5&amp;data=eyJvd25lcl9pZCI6MTUwMDE2NiwidXNlcl9pZCI6MTUwMDE2NiwicGFnZV9pZCI6NTUzMjM4MSwicHVibGlzaGVkX3ZlcnNpb24iOjE1MiwicXVhbnRpdHkiOjEsInN0YXRpY19wYWdlIjpmYWxzZSwidmFyaWF0aW9uX25hbWUiOiJBIiwidmFyaWF0aW9uX2lkIjoxLCJsaW5rZWRfdmFyaWF0aW9uX2lkIjoyLCJpbml0aWFsX3Jlc3BvbnNpdmVfbW9kZSI6bnVsbCwidmlzaXRvcl9pcCI6IjEwNC4xNTUuMTU5LjcxIiwidXNlcmFnZW50IjoiIiwiZ2VuZXJhdGlvbl90aW1lIjo2OX0=" >
 </noscript>
 <!-- end -->
 		
